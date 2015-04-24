@@ -2,7 +2,7 @@
 import re
 import sys
 import random
-import numpy
+#import numpy
 from deap import algorithms
 from deap import base
 from deap import creator
@@ -150,13 +150,13 @@ class GaRegexCreator():
         hof = tools.ParetoFront()
         
         stats = tools.Statistics(lambda ind: ind.fitness.values)
-        stats.register("avg", numpy.mean, axis=0)
-        stats.register("std", numpy.std, axis=0)
-        stats.register("min", numpy.min, axis=0)
-        stats.register("max", numpy.max, axis=0)
+        #stats.register("avg", numpy.mean, axis=0)
+        #stats.register("std", numpy.std, axis=0)
+        stats.register("min", min)
+        stats.register("max", max)
         
         logbook = tools.Logbook()
-        logbook.header = "gen", "evals", "std", "min", "avg", "[good,evil,len]", "best"
+        logbook.header = "gen", "evals", "min", "[good,evil,len]", "best"
         
         # Evaluate every individuals
         fitnesses = self.toolbox.map(self.toolbox.evaluate, pop)
