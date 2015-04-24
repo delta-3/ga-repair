@@ -1,2 +1,7 @@
 '='
 '=';#
+SELECT /*!32302 1/0, */ 1 FROM tablename
+Username: admin'--
+--
+#
+ID: 10;DROP members --
